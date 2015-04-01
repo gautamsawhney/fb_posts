@@ -1,0 +1,15 @@
+<%= image_tag @user['picture']['data']['url'].to_s %><br/><br/>
+<%= @user['name'] %></br><br/>
+<% num = 1 %>
+<% @user['accounts']['data'][0]['posts']['data'].each do |q| %>
+<ul>
+  <% m = q['id'].to_s.split('_').last %>
+  <% d = q['created_time'].to_s.split('T').first %>
+  <% t = q['created_time'].to_s.split('T').last %>
+  <% url = "https://www.facebook.com/bstorm2014/posts/#{m}?fref=nf&pnref=story" %>
+  	<li><a href="<%=  url %>" target="_blank">Post<%= " #{num}" %></a> <%= "#{d}" %><%= "#{t}" %></li>
+  <% num = num + 1 %>	
+</ul>  
+<% end %>  
+
+
