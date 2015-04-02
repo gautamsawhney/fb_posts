@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
     access_token = auth['token']
     facebook = Koala::Facebook::API.new(access_token)
     # var = facebook.get_object("me?fields=name,picture,accounts{posts.limit(50){id},name}")
-      var = facebook.get_object("1530731370489744?fields=posts.limit(5)")
+      var = facebook.get_object("1530731370489744?fields=posts.limit(50)")
     # retrieve collection fo all your managed pages: returns collection of hashes with page id, name, category, access token and permissions
      # pages = facebook.get_connections('me', 'accounts')
     # get access token for first page

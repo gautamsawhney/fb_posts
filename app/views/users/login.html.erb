@@ -4,7 +4,13 @@
    <ul>
    	<% d = u['created_time'].to_s.split('T').first %>
 		<% t = u['created_time'].to_s.split('T').last %>
-   <li><a href="<%=  url %>" target="_blank">Post<%= " #{num}" %></a> <%= "  #{d}" %><%= "  #{t}" %></li>
+		<% if u['shares']%>
+		  <% s = u['shares']['count'] %>
+		<% else %>
+		  <% s = 0 %>
+		<% end %>  
+
+   <li><a href="<%=  url %>" target="_blank">Post<%= "#{num}" %></a><%= "," %> <%= "Date  -  #{d}," %><%= " Time: #{t}," %><%= " shares - #{s}"%></li>
 		  <% num = num + 1 %>	
 		 </ul> 
  <% end %>  
